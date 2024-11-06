@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1730142875384,
+    "title": "Tarea 1 - Lista Mercadona",
+    "description": "Realizar lista de la compra de Mercadona",
+    "completed": false,
+    "priority": "Chill"
+  },
+  {
+    "id": 1730142893010,
+    "title": "Tarea 2",
+    "description": "Ir a comprar a Mercadona",
+    "completed": false,
+    "priority": "Alta"
+  },
+  {
+    "id": 1730142904695,
+    "title": "Tarea 3",
+    "description": "Deporte diario de 30 minutos",
+    "completed": false,
+    "priority": "Crítico"
+  },
+  {
+    "id": 1730142918775,
+    "title": "Tarea 4",
+    "description": "20 minutos de audio libro en inglés",
+    "completed": false,
+    "priority": "Crítico"
+  },
+  {
+    "id": 1730213309438,
+    "title": "Montar un servidor apache",
+    "description": "Estudiar la manera de montar un servidor Apache con Docker para levantar un servicio backend",
+    "completed": false,
+    "priority": "Baja"
+  },
+  {
+    "id": 1730213437856,
+    "title": "Tarea 1",
+    "description": "Preparar clases de DEAW",
+    "completed": false,
+    "priority": "Crítico"
+  },
+  {
+    "id": 1730213940720,
+    "title": "TASK 8",
+    "description": "Hacer la maleta para este puente que viene",
+    "completed": false,
+    "priority": "Crítico"
+  },
+  {
+    "id": 1730215215681,
+    "title": "Práctica BBDD",
+    "description": "Preparar la práctica de Bases de Datos",
+    "completed": false,
+    "priority": "Alta"
+  },
+  {
+    "id": 1730276266939,
+    "title": "Preparar clase BBDD",
+    "description": "kasjbvkajs vaksjd vaksjvnsd ",
+    "completed": false,
+    "priority": "Crítico"
+  }
+]
