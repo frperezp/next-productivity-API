@@ -1,23 +1,32 @@
-# It uses node:18-alpine as the base image for the Node.js application
-FROM node:18-alpine
+# Etapa 1: Construcción de la aplicación
+FROM node:18-alpine AS build
 
-# It installs the nodemon package globally for monitoring and watching the backend Express server
-# RUN npm install -g nodemon
-
-# Creating the working directory named `app`
+# Establecer el directorio de trabajo
 WORKDIR /app
 
-# Copying all the tools and dependencies in the package.json file to the working directory `app`
-COPY package.json .
+# Copiar los archivos necesarios para instalar las dependencias
+COPY package.json package-lock.json ./
 
-#Installing all the tools and dependencies in the container
-RUN npm install
+# Instalar las dependencias
+RUN npm install --production=false
 
-#Copying all the application source code and files to the working directory `app`
+# Copiar el código fuente de la aplicación
 COPY . .
 
-#Exposing the container to run on this port 4000
-EXPOSE 5000
+# Construir la aplicación
+RUN npm run build
 
-#Command to start the Docker container for the backed server application
-CMD ["npm", "start"]
+# Etapa 2: Imagen final optimizada
+FROM nginx:alpine
+
+# Copiar los archivos de construcción desde la etapa anterior
+COPY --from=build /app/build /usr/share/nginx/html
+
+# Configurar NGINX para servir archivos correctamente
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# Exponer el puerto en el que corre NGINX
+EXPOSE 80
+
+# Iniciar NGINX
+CMD ["nginx", "-g", "daemon off;"]
