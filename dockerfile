@@ -1,20 +1,23 @@
-# Usa una imagen ligera de Node.js
+# It uses node:18-alpine as the base image for the Node.js application
 FROM node:18-alpine
 
-# Establece el directorio de trabajo dentro del contenedor
+# It installs the nodemon package globally for monitoring and watching the backend Express server
+# RUN npm install -g nodemon
+
+# Creating the working directory named `app`
 WORKDIR /app
 
-# Copia los archivos necesarios
-COPY package.json package-lock.json ./
+# Copying all the tools and dependencies in the package.json file to the working directory `app`
+COPY package.json .
 
-# Instala las dependencias
-RUN npm install --production
+#Installing all the tools and dependencies in the container
+RUN npm install
 
-# Copia el código fuente de la aplicación
+#Copying all the application source code and files to the working directory `app`
 COPY . .
 
-# Expone el puerto en el que corre tu aplicación
+#Exposing the container to run on this port 4000
 EXPOSE 5000
 
-# Comando para iniciar la aplicación
+#Command to start the Docker container for the backed server application
 CMD ["npm", "start"]
