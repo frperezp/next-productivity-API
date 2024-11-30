@@ -14,7 +14,7 @@ RUN npm install --production
 COPY . .
 
 # Expone el puerto en el que corre tu aplicación
-EXPOSE 3000
+EXPOSE 5000
 
 # Comando para iniciar la aplicación
 CMD ["npm", "start"]
